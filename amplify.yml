@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      runtime-versions:
+        nodejs: 22
+      commands:
+        - node -v
+        - npm -v
+        - npm install -g pnpm@latest-10
+        - pnpm config set store-dir .pnpm-store
+        - pnpm install --frozen-lockfile
+    build:
+      commands:
+        - pnpm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .pnpm-store/**/*
+      - .next/cache/**/*

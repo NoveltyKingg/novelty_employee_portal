@@ -3,18 +3,47 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start -p 3001",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,json,md,html,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "axios": "^1.19.0",
+    "axios-hooks": "^5.1.1",
+    "dayjs": "^1.11.21",
     "next": "16.4.6",
+    "nprogress": "^0.2.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "16.4.6"
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^16.3.1",
+    "eslint": "^10.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "16.4.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-nested": "^6.2.0",
+    "postcss-preset-env": "^10.0.6",
+    "prettier": "^3.10.1"
   }
 }

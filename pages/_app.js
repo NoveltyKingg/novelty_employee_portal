@@ -1,5 +1,8 @@
-import "@/styles/globals.css";
+import '../styles/globals.css';
+import 'nprogress/nprogress.css';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import CustomApp from '../components/_app';
+
+export default function App(props) {
+  return <CustomApp {...props} />;
 }
