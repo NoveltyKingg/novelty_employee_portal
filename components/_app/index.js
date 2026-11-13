@@ -1,6 +1,5 @@
 import NProgress from 'nprogress';
 import Router from 'next/router';
-import React from 'react';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
